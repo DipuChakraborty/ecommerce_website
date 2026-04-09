@@ -3,11 +3,11 @@ pipeline {
 
     environment {
         DOCKER_CREDENTIALS_ID = '945f20fe-7fea-426b-9416-82a769e28eb5'  // Jenkins credentials ID for Docker Hub
-        DOCKER_IMAGE_NAME = 'DipuChakraborty/ecommerce'
+        DOCKER_IMAGE_NAME = 'dipuChakraborty/ecommerce'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKER_REGISTRY = 'https://index.docker.io/v1/'
         DEPLOY_PATH = "/var/www/html/devxhub-ecommerce/"
-        SSH_USER = "deploy"
+        SSH_USER = "diploy"
         DEPLOY_SERVER = "192.168.40.131"
     }
 
