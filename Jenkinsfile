@@ -15,7 +15,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Pull the code from the Git repository
-                git branch: 'main', credentialsId: '8854b08c-e59f-4234-8751-fbcc06de5574', url: 'https://github.com/Iqbalkhan319/devxhub-ecommerce.git'
+                git branch: 'main', credentialsId: '8854b08c-e59f-4234-8751-fbcc06de5574', url: 'https://github.com/DipuChakraborty/ecommerce_website'
             }
         }
 
