@@ -2,20 +2,20 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS_ID = '034771ce-d18e-43cd-88dc-78c7ade30834'  // Jenkins credentials ID for Docker Hub
-        DOCKER_IMAGE_NAME = 'iqbalkhan319/ecommerce'
+        DOCKER_CREDENTIALS_ID = '945f20fe-7fea-426b-9416-82a769e28eb5'  // Jenkins credentials ID for Docker Hub
+        DOCKER_IMAGE_NAME = 'DipuChakraborty/ecommerce'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKER_REGISTRY = 'https://index.docker.io/v1/'
         DEPLOY_PATH = "/var/www/html/devxhub-ecommerce/"
         SSH_USER = "deploy"
-        DEPLOY_SERVER = "192.168.44.193"
+        DEPLOY_SERVER = "192.168.40.131"
     }
 
     stages {
         stage('Checkout') {
             steps {
                 // Pull the code from the Git repository
-                git branch: 'main', credentialsId: '8c2561ca-5588-4a88-92a6-3b9ab5f26c58', url: 'https://github.com/Iqbalkhan319/devxhub-ecommerce.git'
+                git branch: 'main', credentialsId: '8854b08c-e59f-4234-8751-fbcc06de5574', url: 'https://github.com/Iqbalkhan319/devxhub-ecommerce.git'
             }
         }
 
@@ -100,8 +100,8 @@ EOF
     post {
         success {
             echo 'UAT deployment successful!'
-            mail to: 'iqbalkhan319@gmail.com',
-                 from: 'buprojecttime@brac.net',
+            mail to: 'cdeshi31@gmail.com',
+                 from: 'dipuctgeee@gmail.com',
                  subject: "UAT Pipeline Success: ${currentBuild.fullDisplayName}",
                  body: "UAT deployment successful for build ${env.BUILD_NUMBER}.\nView console output at ${env.BUILD_URL}"
         }
@@ -109,8 +109,8 @@ EOF
         failure {
             echo 'UAT deployment failed!'
             emailext attachLog: true,  // Attach the build log to the email
-                    to: 'iqbalkhan319@gmail.com',
-                    from: 'buprojecttime@brac.net',
+                    to: 'cdeshi31@gmail.com',
+                    from: 'dipuctgeee@gmail.com',
                     subject: "UAT Pipeline Failure: ${currentBuild.fullDisplayName}",
                     body: "UAT deployment failed for build ${env.BUILD_NUMBER}.\nView console output at ${env.BUILD_URL}"
         }
